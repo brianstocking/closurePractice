@@ -11,10 +11,13 @@ var outer = function(){
 
   //Code Here
 
+var inner = outer();
+
+
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //Next problem
@@ -33,6 +36,9 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
+callF = callFriend();
+callF('435-215-9248');
+
 
 
 
@@ -45,11 +51,18 @@ var callFriend = function(){
 */
 
   //Code Here
+var makeCounter = function(){
+  var num = 0;
+  return function(){
+    num++;
+    return num;
+  }
+}
   var count = makeCounter();
-  count() // 1
-  count() // 2
-  count() // 3
-  count() // 4
+  count(1); // 1
+  count(2); // 2
+  count(3); // 3
+  count(4); // 4
 
 
 
@@ -63,7 +76,17 @@ var callFriend = function(){
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
-
-
+var once = function(fn, n){
+  var num = 0;
+  return function(){
+      num++;
+    if (num <= n){
+      fn();
+    }
+    else{
+      console.log('STAHHP')
+    }
+  }
+}
 
 
